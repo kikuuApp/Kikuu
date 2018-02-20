@@ -1,4 +1,4 @@
-import  LAC from './KikuuLoginActionConstants';
+import  LAC from './LoginActionConstants';
 import {combineReducers} from 'redux';
 
 const initialState = {}

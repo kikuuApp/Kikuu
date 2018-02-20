@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import loginReducer from '../app/kikuu_login/KikuuLoginReducer';
+import loginReducer from '../app/kikuu_login/LoginReducer';
 
 
 /**

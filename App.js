@@ -6,15 +6,12 @@ import {
   View
 } from 'react-native';
 import {connect} from 'react-redux';
+import LoginScreen from './com/kikuu/main/app/kikuu_login/LoginScreen';
 
 class App extends Component {
   render() {
     return (
-      <View style={{flex:1, alignSelf:'stretch'}}>
-        <Text>
-          Welcome to React Native!
-        </Text>
-      </View>
+      <LoginScreen/>
     );
   }
 }
