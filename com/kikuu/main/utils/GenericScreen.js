@@ -1,28 +1,22 @@
-import React, { Component } from 'react';
-import Styles from '../../../../resources/static/styles/KikuuStyles';
+import React, { Component } from "react";
+import Styles from "../../../../resources/static/styles/KikuuStyles";
 
-import { Text,
-         View,
-         KeyboardAvoidingView,
-         TextInput,
-         SafeAreaView,
-         Platform,
-         } from 'react-native'
-import {connect} from 'react-redux';
+import {
+  Text,
+  View,
+  KeyboardAvoidingView,
+  TextInput,
+  SafeAreaView,
+  Platform,
+} from "react-native";
 
+import { connect } from "react-redux";
 
 class GenericScreen extends Component {
   render() {
-    return (
-      <SafeAreaView style={Styles.main_con}>
-        <Text> Its about Time </Text>
-        <Text> Its about Time </Text>
-      </SafeAreaView>
-    )
+    const { model } = this.props;
+    return <SafeAreaView style={Styles.main_con}>{model}</SafeAreaView>;
   }
 }
 
-export default connect(null,null)(GenericScreen);
-
-
-
+export default connect(null, null)(GenericScreen);

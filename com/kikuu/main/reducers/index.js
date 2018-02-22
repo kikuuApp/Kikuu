@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import loginReducer from '../app/kikuu_login/LoginReducer';
-
+//import loginReducer from '../app/kikuu_login/LoginReducer';
+import {userLogin,loginManager} from '../app/kikuu_login/LoginReducer'
 
 /**
  * The rootreducders combines multiple
@@ -8,7 +8,9 @@ import loginReducer from '../app/kikuu_login/LoginReducer';
  * This is where all reducers are registered  
  */
 const rootReducers = combineReducers({
-    loginReducer,
+   // loginReducer,
+    userLogin,
+    loginManager
 });
 
 export default rootReducers;

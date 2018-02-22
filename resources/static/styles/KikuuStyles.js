@@ -7,7 +7,7 @@ const Styles = StyleSheet.create({
         backgroundColor: "#F5FCFF",
         flex:1,
         alignItems: 'center',
-        flexDirection: 'column-reverse',
+        // flexDirection: 'column-reverse',
     }
 });
 
