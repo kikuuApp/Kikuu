@@ -12,7 +12,7 @@ export function initApp(){
     return (dispatch) => {
         //AsyncStorage.getItem(LAC.SAVE_USER).then(usr => {
             let usr = new UserModel('iiouioo')
-            //usr.setTelephone('58758757585');
+            usr.setTelephone('58758757585');
             usr.setIsRegistered(true);
             dispatch({type:LAC.LOAD_USER, User:null});
             

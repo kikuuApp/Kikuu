@@ -13,14 +13,12 @@ export function loginManager (state = initialState, action){
     case LAC.USER_TEL:
       let newstate = Object.assign({}, state, action.loginModel);
       return newstate | state;
-
     default:
       return state;
   }
 };
 
 export function userLogin  (state={}, action) {
-  
   switch (action.type) {
     case LAC.LOAD_USER: 
       state = Object.assign({}, state, {User:action.User});

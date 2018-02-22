@@ -29,7 +29,7 @@ class LoginScreen extends Component {
   }
   render() {
     const { userLogin, loginManager} = this.props;
-    alert(JSON.stringify(this.props));
+    //alert(JSON.stringify(this.props));
     try {
       if (userLogin.User.isRegistered && userLogin.User.telephone !== undefined) {
         //MAin application Activity view
@@ -42,7 +42,9 @@ class LoginScreen extends Component {
       /**
        * Show main Login view
        */
-      return <TelInputview telephone={this.userPinCheck} />;
+      return <GenericScreen
+             model={<TelInputview telephone={this.userPinCheck}/>}
+             />
     }
   }
 }
