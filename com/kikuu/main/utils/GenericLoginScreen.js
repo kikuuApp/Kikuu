@@ -13,21 +13,20 @@ import {
 } from "react-native";
 
 import { connect } from "react-redux";
-
 const backImage = require("../../../../resources/static/images/back.png");
 const appicon = require("../../../../resources/static/images/appIcon.png");
 
-class GenericScreen extends Component {
+class GenericLoginScreen extends Component {
   render() {
     const { model } = this.props;
     return (
-      <SafeAreaView style={{ flex: 1, alignSelf: "stretch" }}>
-        <ImageBackground source={backImage} style={Styles.main_con}>
+      <SafeAreaView style={Styles.gen_ls_con}>
+        <ImageBackground source={backImage} style={Styles.gen_ls_bg_con}>
           <Image
             source={appicon}
-            style={{ width: 60, height: 50, top:60, flexDirection: "row-reverse" }}
+            style={Styles.gen_ls_AppIcon}
           />
-          <View style={{flex:1, alignSelf:'stretch',justifyContent:'center',padding:50}}>
+          <View style={Styles.gen_ls_model}>
           {model}
           </View>
         </ImageBackground>
@@ -36,4 +35,4 @@ class GenericScreen extends Component {
   }
 }
 
-export default connect(null, null)(GenericScreen);
+export default connect(null, null)(GenericLoginScreen);

@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import { View, Text, KeyboardAvoidingView, TextInput } from "react-native";
 import UserModel from "../kikuu_user/UserModel";
 import { connect } from "react-redux";
-import GenericScreen from "../../utils/GenericScreen";
+import GenericLoginScreen from "../../utils/GenericLoginScreen";
 import { initApp } from "./LoginActions";
-import lang from "../../utils/app_languages";
 import TelInputview from "./TelInputView";
 import { loginManager } from "./LoginReducer";
 
@@ -36,13 +35,13 @@ class LoginScreen extends Component {
         return <View><Text>Passed in here</Text></View>
       } else {
         //Show pincode view
-        return <GenericScreen model={<Text>hello world here {userLogin.User.pincode}-- nop</Text>} />;
+        return <GenericLoginScreen model={<Text>hello world here {userLogin.User.pincode}-- nop</Text>} />;
       }
     } catch (error) {
       /**
        * Show main Login view
        */
-      return <GenericScreen
+      return <GenericLoginScreen
              model={<TelInputview telephone={this.userPinCheck}/>}
              />
     }
@@ -52,7 +51,8 @@ class LoginScreen extends Component {
 //All states from LoginReducers
 const mapStateToProps = state => ({
   userLogin: state.userLogin,
-  loginManager: state.loginManager
+  loginManager: state.loginManager,
+  lang: state.lang.lang,
 });
 
 //All Actions from LoginAction

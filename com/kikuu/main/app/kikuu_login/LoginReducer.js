@@ -1,5 +1,6 @@
 import LAC from "./LoginActionConstants";
 import { combineReducers } from "redux";
+import LANG from '../../utils/lang/LanguageConstants';
 
 const initialState = {};
 /**
@@ -28,6 +29,15 @@ export function userLogin  (state={}, action) {
   }
 };
 
+export function lang(state={}, action){
+  switch(action.type){
+    case LANG:
+    state = Object.assign({},state,{lang:action.lang});
+    return state;  
+default:
+   return state;  
+  }
+}
 /**
  * set a combine reducer to
  * manage multiple reducers
@@ -35,6 +45,7 @@ export function userLogin  (state={}, action) {
 const loginReducer = combineReducers({
  loginManager,
  userLogin,
+ lang,
 });
 
 export default loginReducer;

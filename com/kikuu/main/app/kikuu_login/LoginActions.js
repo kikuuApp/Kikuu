@@ -2,6 +2,9 @@ import React from 'react';
 import { AsyncStorage } from "react-native";
 import LAC from "../kikuu_login/LoginActionConstants";
 import UserModel from '../kikuu_user/UserModel';
+import lang from '../../utils/lang';
+import LANG from '../../utils/lang/LanguageConstants'
+
 
 /**
  * initApp
@@ -11,11 +14,13 @@ import UserModel from '../kikuu_user/UserModel';
 export function initApp(){
     return (dispatch) => {
         //AsyncStorage.getItem(LAC.SAVE_USER).then(usr => {
-            let usr = new UserModel('iiouioo')
+            let usr = new UserModel('iiouioo');
             usr.setTelephone('58758757585');
             usr.setIsRegistered(true);
             dispatch({type:LAC.LOAD_USER, User:null});
-            
+            //alert(JSON.stringify(lang.en));
+            //NETWORK CALL TO API TO REQUEST FOR USER PROFILE
+            dispatch({type:LANG,lang:lang.en});
         //});
       };
 };

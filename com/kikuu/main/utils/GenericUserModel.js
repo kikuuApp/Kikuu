@@ -1,5 +1,5 @@
 import Proptypes from 'prop-types';
-import GenericScreen from './GenericScreen';
+import GenericLoginScreen from './GenericLoginScreen';
 import UserMonitor from '../app/kikuu_user/UserMonitor';
 import UserProfile from '../app/kikuu_user/UserProfile';
 
@@ -69,7 +69,7 @@ export default class GenericUserModel{
    getUserProfile(){return this.UserProfile}
 }
 
-GenericScreen.Proptypes={
+GenericLoginScreen.Proptypes={
     uid: Proptypes.string,
     userMood: Proptypes.string,
     isRegistered: Proptypes.bool,
