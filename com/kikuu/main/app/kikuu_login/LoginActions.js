@@ -17,7 +17,7 @@ export function initApp(){
             let usr = new UserModel('iiouioo');
             usr.setTelephone('58758757585');
             usr.setIsRegistered(true);
-            dispatch({type:LAC.LOAD_USER, User:null});
+            dispatch({type:LAC.LOAD_USER, User:usr});
             //alert(JSON.stringify(lang.en));
             //NETWORK CALL TO API TO REQUEST FOR USER PROFILE
             dispatch({type:LANG,lang:lang.en});

@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { Button } from "react-native-elements";
 import Styles from "../../../../../resources/static/styles/KikuuStyles";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 /**
  * Telephone registration view
@@ -29,7 +30,7 @@ class TelInputview extends Component {
       
         {/** Input for telephone number*/}
         <View style={Styles.reg_tel_icon_flex}>
-        <Text style={{top:13}}>Icon</Text>
+        <Icon name="mobile-phone" size={40} color="blue" />
         <TextInput
           style={Styles.reg_tel_input}
           underlineColorAndroid={"transparent"}
@@ -39,11 +40,8 @@ class TelInputview extends Component {
        </View>
 
         {/** Login */}
-        <TouchableOpacity style={Styles.reg_continue}>
-          <View style={Styles.reg_icon_flex}>
-            <Text>Icon</Text>
-            <Text style={{ paddingLeft: 5 }}>{lang.reg_continue}</Text>
-          </View>
+        <TouchableOpacity style={Styles.reg_continue}onPress={()=>alert('pressed')}>
+            <Text style={Styles.reg_continueText}>{lang.reg_continue}</Text>
         </TouchableOpacity>
         
       </KeyboardAvoidingView>
@@ -51,7 +49,7 @@ class TelInputview extends Component {
   }
 }
 const mapStatetoProps = state => ({
-  lang: state.lang.lang
+  lang: state.loginReducer.lang.lang,
 });
 
 const mapActiontoProps = {};

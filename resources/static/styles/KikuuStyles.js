@@ -4,6 +4,14 @@ import {StyleSheet} from 'react-native';
 const Styles = StyleSheet.create({
     
 
+      /**
+       * Generic one-time flex:1
+       */
+       oneTime_Flex:{
+           flex:1,
+       },
+
+
 
     /**
      * GenericLoginScreen Component
@@ -59,9 +67,14 @@ const Styles = StyleSheet.create({
     reg_continue:{
         backgroundColor:'rgba(rgba(9, 120, 223, 0.7))',
         padding:12, alignItems:'center',
-        
     }, 
-
+    
+    reg_continueText:{ 
+        paddingLeft: 5,
+        color:'white', 
+        fontSize:24
+    },
+    
     reg_icon_flex:{
        flexDirection:'row',
     },
@@ -70,7 +83,42 @@ const Styles = StyleSheet.create({
         backgroundColor:'rgba(255,255,255,0.5)',
         marginBottom:10,
         paddingLeft:10,
-     }  
+     },
+     
+     /**---------------SystemNavigationHeader----------- */
+
+     snh_main_con:{
+        backgroundColor:'#4285F4',
+        alignSelf:'stretch',
+        padding:10, 
+        flexDirection:'row',
+        justifyContent: 'space-between'
+    },
+    snh_Icontext_con:{
+        flexDirection:'row',
+    },
+    snh_icon_navicon:{
+        flex:0, 
+        marginRight:10,
+        //color:'white' 
+    },
+    snh_appname_text:{
+        color:'white',
+        fontSize:24
+    },
+    snh_search_con:{
+        flex:0, 
+        alignSelf:'stretch', 
+        flexDirection:'row',
+        backgroundColor:'transparent' 
+    },
+    snh_search_input:{
+
+    },
+    snh_search_icon:{
+     //color:'white'   
+    }
+     
 });
 
 export default Styles;

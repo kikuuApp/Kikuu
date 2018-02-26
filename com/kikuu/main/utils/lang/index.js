@@ -9,9 +9,11 @@ import Russian from './Russian';
  * Languages supported
  * and Paths to them
  */
+import I18n from 'react-native-i18n';
 
-
-export default lang ={
+I18n.fallbacks = true;
+const lang = I18n.translation ={
     en : English,
     rus :Russian,
 }
+export default lang;

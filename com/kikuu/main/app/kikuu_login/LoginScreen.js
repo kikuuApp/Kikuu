@@ -6,6 +6,9 @@ import GenericLoginScreen from "../../utils/GenericLoginScreen";
 import { initApp } from "./LoginActions";
 import TelInputview from "./TelInputView";
 import { loginManager } from "./LoginReducer";
+import SystemNavigatorScreen from '../kikuu_system/SystemNavigatorScreen';
+import SystemNavigatorHeader from '../kikuu_system/SystemNavigatorHeader';
+import Styles from '../../../../../resources/static/styles/KikuuStyles'
 
 /**
  * KikuuLoginScreen manages the Logins
@@ -31,8 +34,20 @@ class LoginScreen extends Component {
     //alert(JSON.stringify(this.props));
     try {
       if (userLogin.User.isRegistered && userLogin.User.telephone !== undefined) {
+        
         //MAin application Activity view
-        return <View><Text>Passed in here</Text></View>
+      return( 
+              <View style={Styles.oneTime_Flex}>
+                <SystemNavigatorHeader
+                    iconColor ={'white'}
+                    iconAction ={()=>alert('42342')}
+                    iconStyle={{}}
+                />
+
+                <SystemNavigatorScreen/>
+              </View>
+              );
+
       } else {
         //Show pincode view
         return <GenericLoginScreen model={<Text>hello world here {userLogin.User.pincode}-- nop</Text>} />;
@@ -50,9 +65,9 @@ class LoginScreen extends Component {
 
 //All states from LoginReducers
 const mapStateToProps = state => ({
-  userLogin: state.userLogin,
-  loginManager: state.loginManager,
-  lang: state.lang.lang,
+  userLogin: state.loginReducer.userLogin,
+  loginManager: state.loginReducer.loginManager,
+  lang: state.loginReducer.lang.lang,
 });
 
 //All Actions from LoginAction
