@@ -11,6 +11,10 @@ const English={
     /**Pincode */
     reg_pincodeMsg:'pinCode match error!',
     reg_pincode_RequestMsg:'You will shortly recieve authorization pinCode.',
+
+    /***System Navigation */
+    activities: 'Activities',
+    contacts: 'Contacts',
     
 };
 export default English;

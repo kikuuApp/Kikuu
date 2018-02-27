@@ -1,5 +1,10 @@
 import {StyleSheet} from 'react-native';
+import {Dimensions} from 'react-native';
 
+/** 
+ * Application Dimensions
+*/
+const {width , height} = Dimensions.get('window');
 
 const Styles = StyleSheet.create({
     
@@ -86,11 +91,18 @@ const Styles = StyleSheet.create({
      },
      
      /**---------------SystemNavigationHeader----------- */
+     snh_header_conWrapper:{
+        flexDirection:'column',
+        alignItems:'center',
+        alignContent:'center'
+     },
 
      snh_main_con:{
-        backgroundColor:'#4285F4',
+        backgroundColor:'#eee',
         alignSelf:'stretch',
-        padding:10, 
+        paddingTop:10,
+        paddingLeft:10, 
+        paddingRight:5, 
         flexDirection:'row',
         justifyContent: 'space-between'
     },
@@ -103,8 +115,9 @@ const Styles = StyleSheet.create({
         //color:'white' 
     },
     snh_appname_text:{
-        color:'white',
-        fontSize:24
+        color:'grey',
+        fontSize:20,
+        marginLeft:20,
     },
     snh_search_con:{
         flex:0, 
@@ -116,8 +129,24 @@ const Styles = StyleSheet.create({
 
     },
     snh_search_icon:{
-     //color:'white'   
-    }
+     //color:'white'
+     marginRight:10,   
+    },
+    snh_app_title:{
+     fontSize:16,
+     textAlign:'center'
+    },
+
+    /**-----------SYSTEMNAVIGATOR-------------- */
+    sn_add:{height:50, width:50,
+        backgroundColor:'red',
+        position:'absolute',
+        zIndex:12,
+        bottom:20,
+        left:width-60,
+        alignItems:'center',
+        alignContent:'center',
+        borderRadius:50},
      
 });
 

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import {connect} from "react-redux";
 /** 
  * KikuuIcons

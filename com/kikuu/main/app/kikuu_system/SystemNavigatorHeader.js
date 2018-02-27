@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { View,
-        Text } from "react-native";
+        Text,
+        TextInput } from "react-native";
 import {connect} from "react-redux";
 import Styles from '../../../../../resources/static/styles/KikuuStyles';
 import KikuuIcons from '../../utils/KikuuIcons';
+
 /** 
  * SystemNavigatorHeader for navigation.
  * 
@@ -15,13 +17,29 @@ class SystemNavigationHeader extends Component {
     }
     
     render(){
+        /**
+         * check for boolean to show search
+         * @TODO come back andd implement the logic with searchBoolean
+         */
+        if(!this.props.lang) return( <View style={Styles.snh_main_con}>
+                                      <TextInput 
+                                            underlineColorAndroid={'transparent'}
+                                            style={{alignSelf:'stretch',backgroundColor:'lightblue',flex:1}}
+                                            onChangeText={(val)=>alert(val)}/>
+                                     </View>
+                                     )
+        /**
+         * Default header to show
+         */                             
         return (
+            <View style={Styles.snh_header_conWrapper}>
+
             <View style={Styles.snh_main_con}>
                 <View style={Styles.snh_Icontext_con}>    
                  <KikuuIcons 
-                       iconName={'navicon'} 
-                       iconSize={30} 
-                       iconColor={this.props.iconColor}
+                       iconName={'menu'} 
+                       iconSize={20} 
+                       //iconColor={this.props.iconColor}
                        iconAction={this.props.iconAction}
                        iconStyle={this.props.iconStyle}/>
 
@@ -30,12 +48,20 @@ class SystemNavigationHeader extends Component {
                   </View>
 
                   <View  style={Styles.snh_search_con }>
+                        {/*** Search Icon*/}
+                        <KikuuIcons 
+                                iconName ="magnifier" 
+                                iconSize = {20} 
+                                iconStyle ={Styles.snh_search_icon}/>
 
-                  <KikuuIcons 
-                        iconName ="bullseye" 
-                        iconSize = {30} 
-                        iconStyle ={Styles.snh_search_icon}/>    
-            </View>
+                        {/*** Vertical Option Icon*/}
+                        <KikuuIcons 
+                                iconName ="options-vertical" 
+                                iconSize = {20} 
+                                iconStyle ={Styles.snh_search_icon}/>
+                  </View>
+              </View>
+             
         </View>
         );
     }
