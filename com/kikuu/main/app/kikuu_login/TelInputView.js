@@ -40,7 +40,7 @@ class TelInputview extends Component {
        </View>
 
         {/** Login */}
-        <TouchableOpacity style={Styles.reg_continue}onPress={()=>alert('pressed')}>
+        <TouchableOpacity style={Styles.reg_continue}onPress={()=>Navigation.navigate()}>
             <Text style={Styles.reg_continueText}>{lang.reg_continue}</Text>
         </TouchableOpacity>
         

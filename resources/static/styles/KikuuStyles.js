@@ -23,7 +23,13 @@ const Styles = StyleSheet.create({
      */
 
     /**SafeAreaView */
-    gen_ls_con:{flex: 1, alignSelf: "stretch" },
+    gen_ls_con:{
+        flex: 1, 
+        alignSelf: "stretch",
+        backgroundColor:'rgb(52, 152, 219)',
+        alignContent:'center',
+        alignItems:'center',
+     },
     
     /**ImageBackground */
     gen_ls_bg_con:{
@@ -35,8 +41,8 @@ const Styles = StyleSheet.create({
     
     /**Image */
     gen_ls_AppIcon:{ 
-        width: 60,
-        height: 60, 
+        width: 80,
+        height: 80, 
         top:20, 
         flexDirection: "row-reverse" 
     },
@@ -65,13 +71,27 @@ const Styles = StyleSheet.create({
     /**TextInput for reg telepnoe numbers*/            
     reg_tel_input:{
         alignSelf:'stretch',
-        flex:1
+        flex:1,
+        textAlign:'center',
+        fontSize:24,
+        height:50,
+        marginTop:-5,
+        borderRadius:25,
     },  
      
+    reg_authcode_input:{
+        alignSelf:'stretch',
+        flex:1,
+        textAlign:'center',
+        fontSize:24,
+        height:50,
+        marginTop:-5,
+    }, 
     /**TouchableOpacity button container */
     reg_continue:{
-        backgroundColor:'rgba(rgba(9, 120, 223, 0.7))',
+        backgroundColor:'rgb( 46, 204, 113 )',
         padding:12, alignItems:'center',
+        borderRadius:25,
     }, 
     
     reg_continueText:{ 
@@ -85,9 +105,12 @@ const Styles = StyleSheet.create({
     },
     reg_tel_icon_flex:{
         flexDirection:'row',
-        backgroundColor:'rgba(255,255,255,0.5)',
+        backgroundColor:'rgb(255,255,255)',
         marginBottom:10,
-        paddingLeft:10,
+        paddingRight:5,
+        paddingTop:5,
+        paddingLeft:20,
+        borderRadius:25,
      },
      
      /**---------------SystemNavigationHeader----------- */

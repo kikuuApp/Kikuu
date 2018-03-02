@@ -1,9 +1,12 @@
 import React from 'react';
 import { TabNavigator, StackNavigator,DrawerNavigator } from "react-navigation";
-import ActivitiesScreen from "../kikuu_user_activities/ActivitiesScreen";
-import ContactsScreen from "../kikuu_user_contacts/ContactsScreen";
 import lang from '../../utils/lang';
 import KikuuIcons from '../../utils/KikuuIcons';
+import NavDrawerLeft from './kikuu_nav_drawer/nav_drawer_left/NavDrawerLeft';
+import {Text} from 'react-native';
+
+import {NavLogin} from '../kikuu_login/kikuu_nav_login/NavLogin';
+import SystemNavigatorHeader from './SystemNavigatorHeader';
 
 /**
  * navigation options
@@ -11,7 +14,7 @@ import KikuuIcons from '../../utils/KikuuIcons';
 const tabBarConfiguration = {
   swipeEnabled: true,
   animationEnabled: true,
-  initialRouteName: 'Activities',
+  initialRouteName: 'NavLogin',
   tabBarOptions: {
     showLabel: true,
     showIcon: true,
@@ -31,12 +34,18 @@ const tabBarConfiguration = {
  * 
  */
 export const SystemNavigator = StackNavigator({
-  Activities: {
-    screen: ActivitiesScreen,
-  },
-  Contacts: {
-    screen: ContactsScreen,
-  }
-}, 
-  tabBarConfiguration
+  NavLogin:{screen:NavLogin,
+          navigationOptions:{
+            header:false,
+          }},
+
+  DrawerS: {screen: NavDrawerLeft,
+    headerMode: 'float',
+    navigationOptions: ({navigation}) => ({
+     header:<SystemNavigatorHeader iconAction={()=>navigation.navigate('DrawerOpen')}/>
+
+    }),
+   
+  }}, 
+{  initialRouteName: 'NavLogin',}
 );

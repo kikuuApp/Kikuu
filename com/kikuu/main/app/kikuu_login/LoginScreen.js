@@ -9,6 +9,7 @@ import { loginManager } from "./LoginReducer";
 import SystemNavigatorScreen from "../kikuu_system/SystemNavigatorScreen";
 import SystemNavigatorHeader from "../kikuu_system/SystemNavigatorHeader";
 import Styles from "../../../../../resources/static/styles/KikuuStyles";
+//import DrawerS from "../kikuu_system/DrawerS";
 
 /**
  * KikuuLoginScreen manages the Logins
@@ -32,42 +33,13 @@ class LoginScreen extends Component {
   render() {
     const { userLogin, loginManager } = this.props;
     //alert(JSON.stringify(this.props));
-    try {
-      if (
-        userLogin.User.isRegistered &&
-        userLogin.User.telephone !== undefined
-      ) {
-        //MAin application Activity view
+
         return (
           <View style={Styles.oneTime_Flex}>
-
-            {/** Main Navigation header*/}
-            {/* <SystemNavigatorHeader
-              iconAction={() => alert("42342")}
-              iconStyle={{}}
-            /> */}
-
-            <SystemNavigatorScreen />
+          {/** Main Application entry point*/}
+            <SystemNavigatorScreen /> 
           </View>
         );
-      } else {
-        //Show pincode view
-        return (
-          <GenericLoginScreen
-            model={<Text>hello world here {userLogin.User.pincode}-- nop</Text>}
-          />
-        );
-      }
-    } catch (error) {
-      /**
-       * Show main Login view
-       */
-      return (
-        <GenericLoginScreen
-          model={<TelInputview telephone={this.userPinCheck} />}
-        />
-      );
-    }
   }
 }
 

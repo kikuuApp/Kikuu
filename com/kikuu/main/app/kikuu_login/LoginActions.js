@@ -3,8 +3,8 @@ import { AsyncStorage } from "react-native";
 import LAC from "../kikuu_login/LoginActionConstants";
 import UserModel from '../kikuu_user/UserModel';
 import lang from '../../utils/lang';
-import LANG from '../../utils/lang/LanguageConstants'
-
+import LANG from '../../utils/lang/LanguageConstants';
+import { NavigationActions } from 'react-navigation';
 
 /**
  * initApp
@@ -20,7 +20,9 @@ export function initApp(){
             dispatch({type:LAC.LOAD_USER, User:usr});
             //alert(JSON.stringify(lang.en));
             //NETWORK CALL TO API TO REQUEST FOR USER PROFILE
+            //dispatch(NavigationActions.navigate({routeName:'DrawerS'}));
             dispatch({type:LANG,lang:lang.en});
+            
         //});
       };
 };

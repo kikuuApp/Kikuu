@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import {connect} from 'react-redux';
 import LoginScreen from './com/kikuu/main/app/kikuu_login/LoginScreen';
+import SystemNavigatorScreen from './com/kikuu/main/app/kikuu_system/SystemNavigatorScreen';
 
 class App extends Component {
   render() {

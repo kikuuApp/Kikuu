@@ -7,7 +7,8 @@ import {combineReducers} from 'redux';
  * @param {*} state 
  * @param {*} action 
  */
-const initialState = SystemNavigator.router.getStateForAction(SystemNavigator.router.getActionForPathAndParams('Activities'));
+const initialState = 
+SystemNavigator.router.getStateForAction(SystemNavigator.router.getActionForPathAndParams('NavLogin'));
 export function SystemNavigatorStateReducer(state=initialState, action){
     const nextState = SystemNavigator.router.getStateForAction(action,state);
     return nextState || state;

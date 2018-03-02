@@ -11,7 +11,7 @@ const English={
     /**Pincode */
     reg_pincodeMsg:'pinCode match error!',
     reg_pincode_RequestMsg:'You will shortly recieve authorization pinCode.',
-
+    reg_pincode_do: 'Enter recieved sms authorization code below',
     /***System Navigation */
     activities: 'Activities',
     contacts: 'Contacts',

@@ -12,7 +12,7 @@ import {
 /***
  * Main Application Entry Point
  */
-export class SystemNavigatorScreen extends Component {
+class SystemNavigatorScreen extends Component {
 
     componentDidMount() {
         BackHandler.addEventListener("hardwareBackPress", this.onBackPress);
