@@ -64,8 +64,12 @@ const Styles = StyleSheet.create({
 
     /**Text */
     reg_instruction:{
-        backgroundColor:'rgba(117, 125, 138, .6)',
-        padding:10,marginBottom:20
+        borderColor:'white',
+        borderWidth:1,
+        padding:10,
+        marginBottom:20,
+        textAlign:'center',
+        color:'white',
     },
 
     /**TextInput for reg telepnoe numbers*/            
@@ -117,7 +121,8 @@ const Styles = StyleSheet.create({
      snh_header_conWrapper:{
         flexDirection:'column',
         alignItems:'center',
-        alignContent:'center'
+        alignContent:'center',
+        height:40,
      },
 
      snh_main_con:{
@@ -127,7 +132,8 @@ const Styles = StyleSheet.create({
         paddingLeft:10, 
         paddingRight:5, 
         flexDirection:'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+   
     },
     snh_Icontext_con:{
         flexDirection:'row',

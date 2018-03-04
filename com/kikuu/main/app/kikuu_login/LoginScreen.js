@@ -31,13 +31,13 @@ class LoginScreen extends Component {
     if (val.length > 5 && val.length < 11) this.kUser.setTelephone(val);
   };
   render() {
-    const { userLogin, loginManager } = this.props;
+    const { userLogin, loginManager,lang } = this.props;
     //alert(JSON.stringify(this.props));
 
         return (
           <View style={Styles.oneTime_Flex}>
           {/** Main Application entry point*/}
-            <SystemNavigatorScreen /> 
+           {lang ? <SystemNavigatorScreen /> : null}
           </View>
         );
   }

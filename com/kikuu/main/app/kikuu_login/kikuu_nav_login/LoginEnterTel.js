@@ -27,8 +27,9 @@ class LoginEnterTel extends Component {
       <GenericLoginScreen
         model={
           <KeyboardAvoidingView style={Styles.reg_input_con}>
+          
           {/** Text field for instructions*/}
-          {/* <Text style={Styles.reg_instruction}>{lang.reg_instruction}</Text> */}
+          <Text style={Styles.reg_instruction}>{lang.reg_instruction}</Text>
   
           {/**Error message*/}
           {/* <Text style={Styles.reg_instruction}>{lang.reg_errorMsg}</Text> */}
