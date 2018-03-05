@@ -27,7 +27,7 @@ const Styles = StyleSheet.create({
         flex: 1, 
         alignSelf: "stretch",
         backgroundColor:'rgb(52, 152, 219)',
-        alignContent:'center',
+        // alignContent:'center',
         alignItems:'center',
      },
     
@@ -49,9 +49,7 @@ const Styles = StyleSheet.create({
 
     /**View container for model */
     gen_ls_model:{
-        flex:1, 
         alignSelf:'stretch',
-        justifyContent:'center',
         padding:50
     },
 
@@ -60,14 +58,14 @@ const Styles = StyleSheet.create({
      */
 /*-----------------Registration view------------------------------*/
     /**keyboradAvoidingView */
-    reg_input_con:{alignSelf:'stretch',padding:10}, 
+    reg_input_con:{alignSelf:'stretch'}, 
 
     /**Text */
     reg_instruction:{
         borderColor:'white',
         borderWidth:1,
-        padding:10,
-        marginBottom:20,
+        padding:5,
+        marginBottom:10,
         textAlign:'center',
         color:'white',
     },
@@ -96,6 +94,7 @@ const Styles = StyleSheet.create({
         backgroundColor:'rgb( 46, 204, 113 )',
         padding:12, alignItems:'center',
         borderRadius:25,
+        marginTop:10,
     }, 
     
     reg_continueText:{ 
@@ -110,7 +109,6 @@ const Styles = StyleSheet.create({
     reg_tel_icon_flex:{
         flexDirection:'row',
         backgroundColor:'rgb(255,255,255)',
-        marginBottom:10,
         paddingRight:5,
         paddingTop:5,
         paddingLeft:20,

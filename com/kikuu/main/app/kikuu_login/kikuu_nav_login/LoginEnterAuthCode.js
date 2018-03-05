@@ -12,6 +12,8 @@ import Styles from "../../../../../../resources/static/styles/KikuuStyles";
 import Icon from "react-native-vector-icons/FontAwesome";
 import GenericLoginScreen from "../../../utils/GenericLoginScreen";
 import { NavigationActions } from "react-navigation";
+
+
 /**
  * Telephone registration view
  * @class
@@ -25,8 +27,6 @@ class LoginEnterAuthCode extends Component {
   }
 
   checkpin(val) {
-    this.setState({ pin: val });
-
     if (val.length >= 5) {
       const navActions = NavigationActions.reset({
         index: 0,
@@ -59,6 +59,7 @@ class LoginEnterAuthCode extends Component {
               <TextInput
                 secureTextEntry={true}
                 style={Styles.reg_authcode_input}
+                keyboardType={'numeric'}
                 underlineColorAndroid={"transparent"}
                 placeholder={lang.reg_authcode_placeholder}
                 onChangeText={val => this.checkpin(val)}
@@ -66,7 +67,7 @@ class LoginEnterAuthCode extends Component {
             </View>
 
             <Text style={Styles.reg_instruction}>{lang.reg_pincode_do}</Text>
-            
+
             {/**Login */}
             {/* <TouchableOpacity
               style={Styles.reg_continue}

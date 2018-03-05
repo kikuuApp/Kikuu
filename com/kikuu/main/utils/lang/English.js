@@ -2,8 +2,7 @@ const English={
     /**Telephone */
     reg_instruction:'Enter a personal fully working'
                     +' mobile number in international format.'
-                    +'\nExample [+44 123 456 7890].'
-                    +'\n Mobile sms tariff my apply.',
+                    +'Mobile sms tariff may apply.',
     reg_input_placeholder: '+44 - 123 - 456 - 7890',
     reg_continue:'Continue',
     reg_errorMsg: 'Mobile phone number must start with country code,'+
