@@ -53,6 +53,8 @@ class LoginEnterAuthCode extends Component {
 
             {/**Error message*/}
             {/* <Text style={Styles.reg_instruction}>{lang.reg_errorMsg}</Text> */}
+            
+            <Text style={Styles.reg_instruction}>{lang.reg_pincode_do}</Text>
 
             {/**Input Authentication code number*/}
             <View style={Styles.reg_tel_icon_flex}>
@@ -66,7 +68,6 @@ class LoginEnterAuthCode extends Component {
               />
             </View>
 
-            <Text style={Styles.reg_instruction}>{lang.reg_pincode_do}</Text>
 
             {/**Login */}
             {/* <TouchableOpacity

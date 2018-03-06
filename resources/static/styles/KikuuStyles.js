@@ -50,15 +50,19 @@ const Styles = StyleSheet.create({
     /**View container for model */
     gen_ls_model:{
         alignSelf:'stretch',
-        padding:50
+        padding:50,
+        //backgroundColor:'red',
     },
 
     /**
      * Registration view css
      */
-/*-----------------Registration view------------------------------*/
+/*-----------------Registration view------------------*/
     /**keyboradAvoidingView */
-    reg_input_con:{alignSelf:'stretch'}, 
+    reg_input_con:{
+        alignSelf:'stretch',
+        position:'relative',
+    }, 
 
     /**Text */
     reg_instruction:{
