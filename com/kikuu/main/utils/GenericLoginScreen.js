@@ -26,8 +26,8 @@ class GenericLoginScreen extends Component {
             source={appicon}
             style={Styles.gen_ls_AppIcon}
           />
-          <Text style={{color:'white', fontSize:26,fontWeight:'bold',marginTop:20}}>Kikuu</Text>
-          <Text style={{fontFamily:'cursive', fontSize:15, color:'darkblue'}}>its business, nothing personal.</Text>
+          <Text style={Styles.gen_app_name}>Kikuu</Text>
+          <Text style={Styles.gen_app_slogan}>its business, nothing personal.</Text>
           <View style={Styles.gen_ls_model}>
           {model}
           </View>

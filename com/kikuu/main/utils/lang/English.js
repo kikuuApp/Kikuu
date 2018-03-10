@@ -3,8 +3,11 @@ const English={
     reg_instruction:'Enter your active'
                     +' mobile number in international format.'
                     +' Mobile sms tariff may apply.',
-    reg_input_placeholder: '+44 - 123 - 456 - 7890',
-    reg_continue:'Continue',
+    reg_input_placeholder: '',
+    reg_agree:'AGREE AND CONTINUE',
+    reg_continue:'CONTINUE',
+    reg_privicy_text:'These steps are optional and only needed if'+ 
+                        'you want to use the Icon.getImageSource function', 
     reg_tel_errorMsg: 'We can\'t seem to locate your country.'+
                         '\nVerify your telephone number and try again', 
     reg_tel_errorHeader:'Telephone error!',

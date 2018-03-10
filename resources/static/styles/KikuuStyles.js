@@ -46,11 +46,28 @@ const Styles = StyleSheet.create({
         top:20, 
         flexDirection: "row-reverse" 
     },
-
+    /**Application name */
+    gen_app_name:{
+        color:'white', 
+        fontSize:26,
+        fontWeight:'bold',
+        marginTop:15
+    },
+    /**Application slogan */
+    gen_app_slogan:{
+        fontFamily:'cursive', 
+        fontSize:15, 
+        color:'darkblue'
+    },
+        
     /**View container for model */
     gen_ls_model:{
         alignSelf:'stretch',
-        padding:50,
+        paddingLeft:50,
+        paddingRight:50,
+        paddingTop:15,
+        flex:1,
+        flexDirection:'column',
         //backgroundColor:'red',
     },
 
@@ -62,6 +79,8 @@ const Styles = StyleSheet.create({
     reg_input_con:{
         alignSelf:'stretch',
         position:'relative',
+    //    backgroundColor:'pink',
+        alignContent:'center',
     }, 
 
     /**Text */
@@ -78,11 +97,11 @@ const Styles = StyleSheet.create({
     reg_tel_input:{
         alignSelf:'stretch',
         flex:1,
-        textAlign:'center',
+        textAlign:'left',
         fontSize:24,
         height:50,
         marginTop:-5,
-        borderRadius:25,
+        //borderRadius:25,
     },  
      
     reg_authcode_input:{
@@ -97,14 +116,15 @@ const Styles = StyleSheet.create({
     reg_continue:{
         backgroundColor:'rgb( 46, 204, 113 )',
         padding:12, alignItems:'center',
-        borderRadius:25,
-        marginTop:10,
+        //borderRadius:25,
+        marginTop:5,
+        marginBottom:10,
     }, 
     
     reg_continueText:{ 
         paddingLeft: 5,
         color:'white', 
-        fontSize:24
+        fontSize:20,
     },
     
     reg_icon_flex:{
@@ -116,9 +136,17 @@ const Styles = StyleSheet.create({
         paddingRight:5,
         paddingTop:5,
         paddingLeft:20,
-        borderRadius:25,
+        //borderRadius:25,
+        marginBottom: 2,
      },
      
+     reg_countries_ScrollList:{
+        alignSelf: "stretch",
+        backgroundColor: "#eee",
+        marginBottom: 2,
+        padding: 10,
+        maxHeight: 200 
+     },
      /**---------------SystemNavigationHeader----------- */
      snh_header_conWrapper:{
         flexDirection:'column',
