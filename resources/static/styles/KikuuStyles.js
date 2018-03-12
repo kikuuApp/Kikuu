@@ -16,7 +16,15 @@ const Styles = StyleSheet.create({
            flex:1,
        },
 
-
+    /**---------------CountriesAndCode-------------*/
+    
+    /***
+     * main countries and code
+     */
+     cc_code_main:{
+         flex:1,
+         backgroundColor:'rgb(213, 219, 219)',
+     },
 
     /**
      * GenericLoginScreen Component
@@ -144,8 +152,10 @@ const Styles = StyleSheet.create({
         alignSelf: "stretch",
         backgroundColor: "#eee",
         marginBottom: 2,
-        padding: 10,
-        maxHeight: 200 
+        flexDirection:'row',
+        justifyContent: 'space-between',
+        padding:10,
+         
      },
      /**---------------SystemNavigationHeader----------- */
      snh_header_conWrapper:{

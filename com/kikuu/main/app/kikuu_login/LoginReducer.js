@@ -38,6 +38,18 @@ default:
    return state;  
   }
 }
+
+export function countriesReducer(state={}, action){
+  switch (action.type) {
+    case LAC.COUNTRIES:
+      //alert(JSON.stringify(action.countries))
+      state = Object.assign({},state,{countries:action.countries});
+      return state;
+    default:
+      return state;
+  }
+
+}
 /**
  * set a combine reducer to
  * manage multiple reducers
@@ -46,6 +58,7 @@ const loginReducer = combineReducers({
  loginManager,
  userLogin,
  lang,
+ countriesReducer,
 });
 
 export default loginReducer;

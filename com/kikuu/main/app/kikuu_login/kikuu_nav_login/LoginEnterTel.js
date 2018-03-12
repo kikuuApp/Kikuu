@@ -10,12 +10,17 @@ import {
   Alert,
   KeyboardAvoidingView
 } from "react-native";
-import { Button } from "react-native-elements";
 import Styles from "../../../../../../resources/static/styles/KikuuStyles";
 import Icon from "react-native-vector-icons/FontAwesome";
 import GenericLoginScreen from "../../../utils/GenericLoginScreen";
 import countryCodes from "../../../../../../resources/static/ccodes";
 import {LoginButton} from '../../../utils/Components';
+
+import {countriesListAction,navigatorAction} from '../LoginActions';
+
+String.prototype.capitalize = function() {
+  return this.charAt(0).toUpperCase() + this.slice(1);
+}
 
 /**
  * Telephone registration view
@@ -34,6 +39,11 @@ class LoginEnterTel extends Component {
   static navigationOptions = ({ navigation }) => ({
     header: false
   });
+
+  navigateToCandC =(obj)=>{
+   return obj.countries.length > 0 ? 
+    this.props.navigation.navigate('CountriesAndCode'):null
+  }
 
   /**
    * manage Telephone inputs and fix
@@ -110,7 +120,7 @@ class LoginEnterTel extends Component {
     this.setState({ cCodes: results });
   };
 
-  /**
+  /**countrieslist
    * countriesScrollList
    * displays List of countries in the scrollView
    * @param state
@@ -131,10 +141,17 @@ class LoginEnterTel extends Component {
       </View>
     ));
   };
+ 
+manageCountryinput(arg){
+  var arg = arg.trim();
+  this._countriesSelect.setNativeProps({ text: arg.capitalize() });
+  this.props.countriesListAction(arg) 
+}
 
   render() {
-    const { lang } = this.props;
-
+    const { lang,countriesReducer } = this.props;
+    this.navigateToCandC(countriesReducer);
+    
     return (
       <GenericLoginScreen
         model={
@@ -148,7 +165,7 @@ class LoginEnterTel extends Component {
 
               <TextInput 
                 ref={(val) => this._countriesSelect =val}
-                onChangeText={()=> this.props.navigation.navigate('CountriesAndCode')}
+                onChangeText={(val)=>this.manageCountryinput(val)}
               />
 
               {/** Input for telephone number*/}
@@ -165,12 +182,7 @@ class LoginEnterTel extends Component {
               </View>
             </KeyboardAvoidingView>
 
-            {/** A scrollview Payload from instance function */}
-            <ScrollView>
-              {this.state.cCodes.length > 0
-                ? this.countriesScrollList(this.state)
-                : null}
-            </ScrollView>
+            <ScrollView/> 
 
             {/** Login */}
               <TouchableOpacity
@@ -186,9 +198,10 @@ class LoginEnterTel extends Component {
   }
 }
 const mapStatetoProps = state => ({
-  lang: state.loginReducer.lang.lang
+  lang: state.loginReducer.lang.lang,
+  countriesReducer: state.loginReducer.countriesReducer,
 });
 
-const mapActiontoProps = {};
+const mapActiontoProps = { countriesListAction,navigatorAction};
 
 export default connect(mapStatetoProps, mapActiontoProps)(LoginEnterTel);

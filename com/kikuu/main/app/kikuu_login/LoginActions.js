@@ -1,11 +1,16 @@
 import React from "react";
-import { AsyncStorage } from "react-native";
+import { AsyncStorage,Alert } from "react-native";
 import LAC from "../kikuu_login/LoginActionConstants";
 import UserModel from "../kikuu_user/UserModel";
 import lang from "../../utils/lang";
 import LANG from "../../utils/lang/LanguageConstants";
 import { NavigationActions } from "react-navigation";
 import countryCodes from "../../../../../resources/static/ccodes";
+
+String.prototype.capitalize = function() {
+  return this.charAt(0).toUpperCase() + this.slice(1);
+}
+
 /**
  * initApp
  * Action to call on application initialization
@@ -45,14 +50,26 @@ const saveUser = async UserModel => {
  * CountriesList
  * @param {*} arg
  */
-export const countrieslist = arg => {
+export const countriesListAction = arg => {
+  var tel = arg.trim();
   return dispatch => {
-    results = countryCodes.filter(
-      val => val.dialling_code.startsWith(arg) || val.dialling_code === val
-    );
+    if (tel.length > 2) {
+      results = countryCodes.filter(
+        val => val.country_name.startsWith(tel.capitalize()) || val.country_name === val
+      );
+        dispatch({ type: LAC.COUNTRIES, countries: results });
+      if(results.countries !== null){
+        dispatch({ type: LAC.COUNTRIES, countries: results });
+      }else{
+            Alert.alert('Error','Country entered does not exist');
+      }
+    }
+  }
+}
 
-    dispatch({type:LAC.COUNTRIES, countries:results});
-  };
+export const navigatorAction = (screenName, params = {}) => {
+  return dispatch => {};
 };
 
 export function countryCodeAction(tel) {}
+
