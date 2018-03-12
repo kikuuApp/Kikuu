@@ -9,6 +9,9 @@ const LAC = {
     SAVE_USER:'SAVE_USER', //SAVE UserModel in AsyncStorage
     LOAD_USER: 'LOAD_USER',// Load user account on phone start.
     COUNTRIES: 'COUNTRIES',
+    COUNTRY:  'COUNTRY',
+    COUNTRY_DCODE: 'COUNTRY_DCODE',
+    COUNTRY_CODE: 'COUNTRY_CODE',
 }
 
 export default LAC;

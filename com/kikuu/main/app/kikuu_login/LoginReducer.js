@@ -39,17 +39,40 @@ default:
   }
 }
 
-export function countriesReducer(state={}, action){
+/**
+ * This Reducer takes care of all the countrie Payload
+ * @param {*} state 
+ * @param {*} action 
+ */
+const countries ={country_name:'United Kingdom', dialling_code:'+44',country_code:'GB'}
+export function countriesReducer(state=countries, action){
   switch (action.type) {
     case LAC.COUNTRIES:
       //alert(JSON.stringify(action.countries))
-      state = Object.assign({},state,{countries:action.countries});
+      state = Object.assign({},state,{countries:action.results});
       return state;
     default:
       return state;
   }
 
 }
+
+export function dCodeReducer(state=countries,action){
+      switch(action.type){
+        case LAC.COUNTRY_DCODE:
+            state = Object.assign({},state, {dialling_code:action.dialling_code});
+            return state;
+        default:
+           return state;    
+      }
+}
+export function cNameReducer(state={},action){
+
+}
+
+
+
+
 /**
  * set a combine reducer to
  * manage multiple reducers

@@ -57,7 +57,7 @@ class LoginEnterAuthCode extends Component {
             <Text style={Styles.reg_instruction}>{lang.reg_pincode_do}</Text>
 
             {/**Input Authentication code number*/}
-            <View style={Styles.reg_tel_icon_flex}>
+            <View style={Styles.reg_tel_con_flex}>
               <TextInput
                 secureTextEntry={true}
                 style={Styles.reg_authcode_input}

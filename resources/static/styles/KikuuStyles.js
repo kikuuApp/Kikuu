@@ -105,13 +105,28 @@ const Styles = StyleSheet.create({
     reg_tel_input:{
         alignSelf:'stretch',
         flex:1,
-        textAlign:'left',
+        marginBottom:-5,
         fontSize:24,
-        height:50,
-        marginTop:-5,
-        //borderRadius:25,
-    },  
-     
+      
+    },
+    
+    /**Telcode eg +44 */
+    reg_tel_code:{
+        //textAlign:'left',
+        paddingRight:10,
+        fontSize:24,
+        marginTop:3,
+    },
+    
+    /**Country Name eg United Kingdom */
+    reg_tel_country:{
+        backgroundColor:'white',
+        alignSelf:'stretch',
+        padding:10,
+        fontSize:24,
+        marginBottom:10
+    },
+
     reg_authcode_input:{
         alignSelf:'stretch',
         flex:1,
@@ -124,7 +139,7 @@ const Styles = StyleSheet.create({
     reg_continue:{
         backgroundColor:'rgb( 46, 204, 113 )',
         padding:12, alignItems:'center',
-        //borderRadius:25,
+        borderRadius:25,
         marginTop:5,
         marginBottom:10,
     }, 
@@ -138,20 +153,19 @@ const Styles = StyleSheet.create({
     reg_icon_flex:{
        flexDirection:'row',
     },
-    reg_tel_icon_flex:{
+    
+    reg_tel_con_flex:{
         flexDirection:'row',
         backgroundColor:'rgb(255,255,255)',
-        paddingRight:5,
-        paddingTop:5,
-        paddingLeft:20,
-        //borderRadius:25,
-        marginBottom: 2,
+        //backgroundColor:'red',
+        height:50,
+        padding:5,
      },
      
      reg_countries_ScrollList:{
         alignSelf: "stretch",
         backgroundColor: "#eee",
-        marginBottom: 2,
+        marginBottom: 5,
         flexDirection:'row',
         justifyContent: 'space-between',
         padding:10,

@@ -15,6 +15,7 @@ import Styles from "../../../../../../resources/static/styles/KikuuStyles";
 import Icon from "react-native-vector-icons/FontAwesome";
 import GenericLoginScreen from "../../../utils/GenericLoginScreen";
 import countryCodes from "../../../../../../resources/static/ccodes";
+import { countriesListAction, CCSearchListAction } from "../LoginActions";
 
 /**
  * Welcome page for the application
@@ -24,6 +25,10 @@ class Welcome extends Component {
     header: false
   });
 
+  moveToLogfinTel(){
+     this.props.navigation.navigate("LoginTel");
+     this.props.CCSearchListAction();
+  }
   render() {
     const { lang } = this.props;
     return (
@@ -37,7 +42,7 @@ class Welcome extends Component {
 
             <TouchableOpacity
               style={Styles.reg_continue}
-              onPress={() => this.props.navigation.navigate("LoginTel")}
+              onPress={() =>this.moveToLogfinTel() }
             >
               <Text style={Styles.reg_continueText}>{lang.reg_agree}</Text>
             </TouchableOpacity>
@@ -49,8 +54,9 @@ class Welcome extends Component {
 }
 
 const mapStatetoProps = state => ({
-  lang: state.loginReducer.lang.lang
+  lang: state.loginReducer.lang.lang,
+  countriesReducer: state.loginReducer.countriesReducer,
 });
 
-const mapActionToProps = {};
+const mapActionToProps = {countriesListAction, CCSearchListAction};
 export default connect(mapStatetoProps, mapActionToProps)(Welcome);

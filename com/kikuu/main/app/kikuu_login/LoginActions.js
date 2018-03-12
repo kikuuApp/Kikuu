@@ -51,24 +51,24 @@ const saveUser = async UserModel => {
  * @param {*} arg
  */
 export const countriesListAction = arg => {
-  var tel = arg.trim();
+  var tel = arg !== undefined ? arg.trim():arg;
   return dispatch => {
-    if (tel.length > 2) {
+    if (tel.length > 0) {
       results = countryCodes.filter(
         val => val.country_name.startsWith(tel.capitalize()) || val.country_name === val
       );
-        dispatch({ type: LAC.COUNTRIES, countries: results });
-      if(results.countries !== null){
-        dispatch({ type: LAC.COUNTRIES, countries: results });
-      }else{
-            Alert.alert('Error','Country entered does not exist');
-      }
+        dispatch({ type: LAC.COUNTRIES, results });
+        
     }
   }
 }
 
-export const navigatorAction = (screenName, params = {}) => {
-  return dispatch => {};
+export const CCSearchListAction = (args) => {
+  return dispatch =>{
+    countriesListAction(args);
+    dispatch({type:LAC.COUNTRY, country:args});
+    
+  }
 };
 
 export function countryCodeAction(tel) {}
