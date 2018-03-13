@@ -57,34 +57,28 @@ class LoginEnterTel extends Component {
   }
 
   render() {
-    const { lang, countriesReducer } = this.props;
-    //alert(JSON.stringify(countriesReducer))
-
+    const { lang, countriesReducer,cCInitReducer } = this.props;
+    //alert(JSON.stringify(this.props.countriesReducer.countries[0]));
     return (
       <GenericLoginScreen
+        isAppHeader ={true}
         model={
           <View style={Styles.oneTime_Flex}>
             <KeyboardAvoidingView style={Styles.reg_input_con}>
-              {/** Text field for instructions*/}
-              <Text style={Styles.reg_instruction}>{lang.reg_instruction}</Text>
 
               {/**-------Country-------------*/} 
               <Text style={Styles.reg_tel_country}
                 ref='_countriesSelect'
-                onPress={()=>this.navigateToCandC(
-                  countriesReducer.countries.length >0 ?
-                  countriesReducer.countries[0].country_name:'United Kingdom')}>
+                onPress={()=>this.navigateToCandC(countriesReducer.countries[0].country_name )}>
 
-                {countriesReducer.countries.length > 0? 
-                  countriesReducer.countries[0].country_name : 'United Kingdom'}
+                {countriesReducer.countries[0].country_name }
                 </Text>
 
               {/** Input for telephone number*/}
               <View style={Styles.reg_tel_con_flex}>
 
                  <Text style={Styles.reg_tel_code}>
-                   {countriesReducer.countries.length > 0? 
-                   countriesReducer.countries[0].dialling_code : '+ 44'}
+                  {countriesReducer.countries[0].dialling_code}
 
                 </Text> 
 
@@ -98,7 +92,8 @@ class LoginEnterTel extends Component {
                 />
               </View>
             </KeyboardAvoidingView>
-
+              {/** Text field for instructions*/}
+              <Text style={Styles.reg_instruction}>{lang.reg_instruction}</Text>
             <ScrollView />
 
             {/** Login */}
@@ -117,8 +112,9 @@ class LoginEnterTel extends Component {
 const mapStatetoProps = state => ({
   lang: state.loginReducer.lang.lang,
   countriesReducer: state.loginReducer.countriesReducer,
-  cNameReducer: state.cNameReducer,
-  dCodeReducer: state.dCodeReducer,
+  cNameReducer: state.loginReducer.cNameReducer,
+  dCodeReducer: state.loginReducer.dCodeReducer,
+  cCInitReducer: state.loginReducer.cCInitReducer,
 });
 
 const mapActiontoProps = { countriesListAction, CCSearchListAction };

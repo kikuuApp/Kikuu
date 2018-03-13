@@ -57,19 +57,44 @@ export const countriesListAction = arg => {
       results = countryCodes.filter(
         val => val.country_name.startsWith(tel.capitalize()) || val.country_name === val
       );
-        dispatch({ type: LAC.COUNTRIES, results });
-        
+        dispatch({ type: LAC.COUNTRIES, results });   
+    }else{
+      var data = countryCodes.map((item,key)=>{ return item;});
+      //alert('results check '+JSON.stringify(data));
+      dispatch({ type: LAC.COUNTRIES, results:data }); 
     }
   }
 }
 
 export const CCSearchListAction = (args) => {
   return dispatch =>{
-    countriesListAction(args);
-    dispatch({type:LAC.COUNTRY, country:args});
+    var val = countryCodes.filter(val => val.country_name  === args);
+    //alert('results check '+JSON.stringify(val));
+    dispatch({type:LAC.COUNTRIES, results:val});
     
   }
 };
+
+export const countriesInit=()=>{
+
+   return dispatch =>{
+     /**
+      * Check from asyncstorage if Country exixts,
+      * if not, then set to the local or use a default data.
+      */ 
+    var args = 'United Kingdom';
+    var val = countryCodes.filter(val => val.country_name  === args);
+    if(val !== null){
+      dispatch({type:LAC.COUNTRY_INIT, 
+        country_name:val[0].country_name,
+        dialling_code:val[0].dialling_code,
+        country_code: val[0].country_code
+      });
+
+      dispatch({ type: LAC.COUNTRIES, results:val });  
+    }
+   }
+}
 
 export function countryCodeAction(tel) {}
 

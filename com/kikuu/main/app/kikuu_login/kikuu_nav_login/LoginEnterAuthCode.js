@@ -46,6 +46,7 @@ class LoginEnterAuthCode extends Component {
 
     return (
       <GenericLoginScreen
+      isAppHeader ={true}
         model={
           <KeyboardAvoidingView style={Styles.reg_input_con}>
             {/**Text field for instructions*/}

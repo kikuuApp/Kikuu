@@ -22,15 +22,17 @@ class GenericLoginScreen extends Component {
     return (
       <SafeAreaView style={Styles.gen_ls_con}>
         {/* <ImageBackground source={backImage} style={Styles.gen_ls_bg_con}> */}
-          <Image
-            source={appicon}
-            style={Styles.gen_ls_AppIcon}
-          />
-          <Text style={Styles.gen_app_name}>Kikuu</Text>
-          <Text style={Styles.gen_app_slogan}>its business, nothing personal.</Text>
-          <View style={Styles.gen_ls_model}>
-          {model}
+        {this.props.isAppHeader ? (
+          <View style={Styles.gen_ls_viewHideHeader}>
+            <Image source={appicon} style={Styles.gen_ls_AppIcon} />
+            <Text style={Styles.gen_app_name}>Kikuu</Text>
+            <Text style={Styles.gen_app_slogan}>
+              its business, nothing personal.
+            </Text>
           </View>
+        ) : null}
+
+        <View style={Styles.gen_ls_model}>{model}</View>
         {/* </ImageBackground> */}
       </SafeAreaView>
     );

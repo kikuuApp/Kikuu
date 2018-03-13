@@ -38,7 +38,11 @@ const Styles = StyleSheet.create({
         // alignContent:'center',
         alignItems:'center',
      },
-    
+     /** This is to view or hide app header in the genericscreen*/
+    gen_ls_viewHideHeader:{
+        justifyContent:'center', 
+        alignItems:'center',
+    },
     /**ImageBackground */
     gen_ls_bg_con:{
         backgroundColor: "#F5FCFF",
@@ -65,17 +69,19 @@ const Styles = StyleSheet.create({
     gen_app_slogan:{
         fontFamily:'cursive', 
         fontSize:15, 
-        color:'darkblue'
+        color:'darkblue',
+        marginBottom:30,
     },
         
     /**View container for model */
     gen_ls_model:{
         alignSelf:'stretch',
-        paddingLeft:50,
-        paddingRight:50,
-        paddingTop:15,
-        flex:1,
+        paddingLeft:20,
+        paddingRight:20,
+        paddingTop:1,
+        flex:10,
         flexDirection:'column',
+        justifyContent:'center',
         //backgroundColor:'red',
     },
 
@@ -93,9 +99,10 @@ const Styles = StyleSheet.create({
 
     /**Text */
     reg_instruction:{
-        borderColor:'white',
-        borderWidth:1,
-        padding:5,
+        //borderColor:'white',
+        //borderWidth:1,
+        padding:0,
+        marginTop:5,
         marginBottom:10,
         textAlign:'center',
         color:'white',

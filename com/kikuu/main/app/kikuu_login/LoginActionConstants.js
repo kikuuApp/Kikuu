@@ -10,6 +10,7 @@ const LAC = {
     LOAD_USER: 'LOAD_USER',// Load user account on phone start.
     COUNTRIES: 'COUNTRIES',
     COUNTRY:  'COUNTRY',
+    COUNTRY_INIT: 'COUNTRY_INIT',
     COUNTRY_DCODE: 'COUNTRY_DCODE',
     COUNTRY_CODE: 'COUNTRY_CODE',
 }

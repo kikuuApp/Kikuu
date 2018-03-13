@@ -45,10 +45,10 @@ default:
  * @param {*} action 
  */
 const countries ={country_name:'United Kingdom', dialling_code:'+44',country_code:'GB'}
-export function countriesReducer(state=countries, action){
+export function countriesReducer(state={}, action){
   switch (action.type) {
     case LAC.COUNTRIES:
-      //alert(JSON.stringify(action.countries))
+      //alert('working'+JSON.stringify(action))
       state = Object.assign({},state,{countries:action.results});
       return state;
     default:
@@ -57,7 +57,7 @@ export function countriesReducer(state=countries, action){
 
 }
 
-export function dCodeReducer(state=countries,action){
+export function dCodeReducer(state={},action){
       switch(action.type){
         case LAC.COUNTRY_DCODE:
             state = Object.assign({},state, {dialling_code:action.dialling_code});
@@ -65,6 +65,24 @@ export function dCodeReducer(state=countries,action){
         default:
            return state;    
       }
+}
+
+/**
+ * INIT for cc payload
+ * @param {*} state 
+ * @param {*} action 
+ */
+export function cCInitReducer(state={},action){
+  switch(action.type){
+    case LAC.COUNTRY_INIT:
+        state = Object.assign({},state, {country_code:action.country_code,
+                                         country_name:action.country_name,
+                                         dialling_code:action.dialling_code });
+                                                                       
+        return state;
+    default:
+       return state;    
+  }
 }
 export function cNameReducer(state={},action){
 
@@ -81,6 +99,7 @@ const loginReducer = combineReducers({
  loginManager,
  userLogin,
  lang,
+ cCInitReducer,
  countriesReducer,
 });
 
