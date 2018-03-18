@@ -26,10 +26,16 @@ class Welcome extends Component {
   });
 
   moveToLogfinTel(){
-    if(this.props.countriesReducer.countries === undefined){ 
-        this.props.countriesInit(); 
+    try{
+    if(this.props.countriesReducer.countries[0].country_name !== undefined
+       || this.props.countriesReducer.countries[0].country_name !== null){ 
+       this.props.navigation.navigate("LoginTel");
     }
-     this.props.navigation.navigate("LoginTel");
+  }catch(error){
+    this.props.countriesInit();
+    this.props.navigation.navigate("LoginTel");
+  }
+     
     
   }
   render() {

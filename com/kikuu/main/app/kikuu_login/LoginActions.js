@@ -1,5 +1,5 @@
 import React from "react";
-import { AsyncStorage,Alert } from "react-native";
+import { AsyncStorage, Alert } from "react-native";
 import LAC from "../kikuu_login/LoginActionConstants";
 import UserModel from "../kikuu_user/UserModel";
 import lang from "../../utils/lang";
@@ -9,7 +9,7 @@ import countryCodes from "../../../../../resources/static/ccodes";
 
 String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1);
-}
+};
 
 /**
  * initApp
@@ -51,50 +51,88 @@ const saveUser = async UserModel => {
  * @param {*} arg
  */
 export const countriesListAction = arg => {
-  var tel = arg !== undefined ? arg.trim():arg;
-  return dispatch => {
-    if (tel.length > 0) {
-      results = countryCodes.filter(
-        val => val.country_name.startsWith(tel.capitalize()) || val.country_name === val
-      );
-        dispatch({ type: LAC.COUNTRIES, results });   
-    }else{
-      var data = countryCodes.map((item,key)=>{ return item;});
-      //alert('results check '+JSON.stringify(data));
-      dispatch({ type: LAC.COUNTRIES, results:data }); 
-    }
-  }
-}
+  var tel = arg; // !== undefined ? arg.trim(): undefined;
 
-export const CCSearchListAction = (args) => {
-  return dispatch =>{
-    var val = countryCodes.filter(val => val.country_name  === args);
-    //alert('results check '+JSON.stringify(val));
-    dispatch({type:LAC.COUNTRIES, results:val});
-    
-  }
+  return dispatch => {
+    if (tel !== undefined || tel.length > 0) {
+      try {
+        results = countryCodes
+          .filter(
+            val =>
+              val.country_name.startsWith(tel.capitalize()) ||
+              val.country_name.contains(tel)
+          )
+          .sort();
+
+        if (results !== null) {
+          dispatch({ type: LAC.COUNTRIES, results });
+        } else {
+          dispatch({
+            type: LAC.COUNTRY_INIT,
+            country_name: "",
+            dialling_code: "",
+            country_code: ""
+          });
+        }
+      } catch (err) {
+        alert(err);
+      }
+    } else {
+      var data = countryCodes.map((item, key) => {
+        return item;
+      });
+      //alert('results check '+JSON.stringify(data));
+      data = data.sort();
+      dispatch({ type: LAC.COUNTRIES, results: data });
+    }
+  };
 };
 
-export const countriesInit=()=>{
+export const CCSearchListAction = args => {
+  return dispatch => {
+    var val = countryCodes.filter(val => val.country_name === args);
+    //alert('results check '+JSON.stringify(val));
+    dispatch({ type: LAC.COUNTRIES, results: val });
+  };
+};
 
-   return dispatch =>{
-     /**
-      * Check from asyncstorage if Country exixts,
-      * if not, then set to the local or use a default data.
-      */ 
-    var args = 'United Kingdom';
-    var val = countryCodes.filter(val => val.country_name  === args);
-    if(val !== null){
-      dispatch({type:LAC.COUNTRY_INIT, 
-        country_name:val[0].country_name,
-        dialling_code:val[0].dialling_code,
+export const countriesInit = () => {
+  return dispatch => {
+    /**
+     * Check from asyncstorage if Country exixts,
+     * if not, then set to the local or use a default data.
+     */
+    var args = "United Kingdom";
+    var val = countryCodes.filter(val => val.country_name === args);
+    if (val !== null) {
+      dispatch({
+        type: LAC.COUNTRY_INIT,
+        country_name: val[0].country_name,
+        dialling_code: val[0].dialling_code,
         country_code: val[0].country_code
       });
 
-      dispatch({ type: LAC.COUNTRIES, results:val });  
+      dispatch({ type: LAC.COUNTRIES, results: val });
     }
-   }
-}
+  };
+};
+
+/**
+ * Searchcountry for searching the countries
+ * @param {*} args
+ */
+export const searchCountry = args => {
+  var tel = args.trim();
+  return dispatch => {
+    results = countryCodes
+      .filter(
+        val =>
+          val.country_name.startsWith(tel.capitalize()) ||
+          val.country_name.contains(tel)
+      )
+      .sort();
+    dispatch({ type: LAC.SEARCH_COUNTRY, results: results });
+  };
+};
 
 export function countryCodeAction(tel) {}
-

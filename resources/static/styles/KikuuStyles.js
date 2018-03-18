@@ -172,7 +172,8 @@ const Styles = StyleSheet.create({
      reg_countries_ScrollList:{
         alignSelf: "stretch",
         backgroundColor: "#eee",
-        marginBottom: 5,
+        marginBottom:2.5,
+        marginTop: 5,
         flexDirection:'row',
         justifyContent: 'space-between',
         padding:10,

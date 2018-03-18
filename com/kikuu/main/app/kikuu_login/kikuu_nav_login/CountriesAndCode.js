@@ -15,18 +15,26 @@ import Styles from "../../../../../../resources/static/styles/KikuuStyles";
 import Icon from "react-native-vector-icons/FontAwesome";
 import GenericLoginScreen from "../../../utils/GenericLoginScreen";
 import countryCodes from "../../../../../../resources/static/ccodes";
-import { countriesListAction, CCSearchListAction } from "../LoginActions";
+import { countriesListAction, CCSearchListAction,searchCountry } from "../LoginActions";
 import KikuuIcons from '../../../utils/KikuuIcons';
 /**
  * Welcome page for the application
  */
 class CountriesAndCode extends Component {
+
+  constructor(props){
+    super(props);
+    this.state ={
+      inputCountry:''
+    }
+  }
   static navigationOptions = ({ navigation }) => ({
     header: false
   });
 
   countriesScrollList = obj => {
     try {
+      //if(obj !== null){
       return obj.map((item, index) => (
         <TouchableOpacity
           key={item.country_code}
@@ -40,6 +48,7 @@ class CountriesAndCode extends Component {
           <Text> {item.dialling_code} </Text>
         </TouchableOpacity>
       ));
+    //}
     } catch (err) {}
   };
    
@@ -52,7 +61,8 @@ class CountriesAndCode extends Component {
   }
 
   manageCandCSearch(args) {
-    this.props.countriesListAction(args);
+    //console.log('Check: '+args);
+    this.props.searchCountry(args);
   }
 
   componentDidMount() {
@@ -65,7 +75,7 @@ class CountriesAndCode extends Component {
   }
 
   render() {
-    const { lang, countriesReducer } = this.props;
+    const { lang, countriesReducer,scReducer } = this.props;
     //alert(' countriesReducer'+JSON.stringify(countriesReducer));
     return (
       <GenericLoginScreen
@@ -92,8 +102,8 @@ class CountriesAndCode extends Component {
            </View>
            
             <ScrollView>
-              {countriesReducer !== null
-                ? this.countriesScrollList(countriesReducer.countries)
+              {countriesReducer.countries !== null
+                ? this.countriesScrollList(scReducer.countries)
                 : null}
             </ScrollView>
           </View>
@@ -106,8 +116,9 @@ class CountriesAndCode extends Component {
 const mapStatetoProps = state => ({
   lang: state.loginReducer.lang.lang,
   countriesReducer: state.loginReducer.countriesReducer,
-  cCInitReducer: state.loginReducer.cCInitReducer
+  cCInitReducer: state.loginReducer.cCInitReducer,
+  scReducer: state.loginReducer.scReducer,
 });
 
-const mapActionToProps = { countriesListAction, CCSearchListAction };
+const mapActionToProps = { countriesListAction, CCSearchListAction,searchCountry };
 export default connect(mapStatetoProps, mapActionToProps)(CountriesAndCode);

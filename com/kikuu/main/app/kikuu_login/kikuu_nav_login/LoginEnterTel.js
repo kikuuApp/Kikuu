@@ -17,10 +17,8 @@ import countryCodes from "../../../../../../resources/static/ccodes";
 import { LoginButton } from "../../../utils/Components";
 
 import { countriesListAction, CCSearchListAction } from "../LoginActions";
+import {KikuuText} from '../../../utils/KikuuCommunicator';
 
-String.prototype.capitalize = function() {
-  return this.charAt(0).toUpperCase() + this.slice(1);
-};
 
 /**
  * Telephone registration view
@@ -38,22 +36,39 @@ class LoginEnterTel extends Component {
     header: false
   });
 
+  /**
+   * Navigate to Countries and Code
+   */
   navigateToCandC = (arg) => {
-   
     try {
-      var cName = arg.trim();
-      this.props.countriesListAction(cName);
-      return this.props.navigation.navigate("CountriesAndCode")
+      //var cName = arg.trim();
+      this.props.countriesListAction(arg);
+      this.props.navigation.navigate("CountriesAndCode")
     } catch (err) {
-
+          alert(err)
     }
   };
 
-  
-  manageCountryinput(arg) {
-    var arg = arg.trim();
-    this._countriesSelect.setNativeProps({ text: arg.capitalize() });
-    this.props.countriesListAction(arg);
+
+  sendMsg(teln,smsMsg,isDirect=true){
+    var direct = isDirect ? 'sendDirect' :'sendIndirect';
+  }
+  /**
+   * Logic to collect and send sms.
+   * if telnum > 10, send msg else alert error
+   */
+  confirmTelNumber() {
+    var telnum = this.props.countriesReducer.countries[0].dialling_code+this.state.telNumber;
+    telnum = telnum.replace('/\s/g','').trim();
+
+      //Commented for development  
+    this.props.navigation.navigate("LoginAuthCode"); 
+    //   if(telnum.length - 1 > 10){
+    //     KikuuText(telnum, this.props.lang.reg_pincode_RequestMsg);
+    //     this.props.navigation.navigate("LoginAuthCode"); 
+    //   }else{
+    //     Alert.alert('Error!',this.props.lang.reg_tel_errorMsg);
+    // }
   }
 
   render() {
@@ -69,16 +84,17 @@ class LoginEnterTel extends Component {
               {/**-------Country-------------*/} 
               <Text style={Styles.reg_tel_country}
                 ref='_countriesSelect'
-                onPress={()=>this.navigateToCandC(countriesReducer.countries[0].country_name )}>
+                onPress={()=>
+                  this.navigateToCandC(this.props.countriesReducer.countries[0].country_name || 'United Kingdom' )}>
 
-                {countriesReducer.countries[0].country_name }
+                {countriesReducer.countries !== null ? countriesReducer.countries[0].country_name : 'United Kingdom'}
                 </Text>
 
               {/** Input for telephone number*/}
               <View style={Styles.reg_tel_con_flex}>
 
                  <Text style={Styles.reg_tel_code}>
-                  {countriesReducer.countries[0].dialling_code}
+                  {countriesReducer.countries !== null ? countriesReducer.countries[0].dialling_code : '+ 44'}
 
                 </Text> 
 
@@ -99,7 +115,7 @@ class LoginEnterTel extends Component {
             {/** Login */}
             <TouchableOpacity
               style={Styles.reg_continue}
-              onPress={() => this.props.navigation.navigate("LoginAuthCode")}>
+              onPress={() => this.confirmTelNumber()}>
               
               <Text style={Styles.reg_continueText}>{lang.reg_continue}</Text>
             </TouchableOpacity>
